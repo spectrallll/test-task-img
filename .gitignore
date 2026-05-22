@@ -1,0 +1,27 @@
+# Local solution — не для кандидатов
+/solution/
+
+# deps
+node_modules
+
+# next
+.next
+out
+
+# editor / os
+.DS_Store
+Thumbs.db
+*.log
+
+# env
+.env
+.env.local
+.env.*.local
+
+# typescript build info
+tsconfig.tsbuildinfo
+
+# screenshots / artefacts
+.playwright-mcp/
+upload-page.png
+img*.png
