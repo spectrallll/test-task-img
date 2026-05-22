@@ -44,15 +44,15 @@ npm run dev
 {
   "url": "/api/upload/put/u_xxx",
   "file_id": "u_xxx",
-  "fields": { "key": "uploads/2026/05/u_xxx.jpg" }
+  "key": "uploads/2026/05/u_xxx.jpg"
 }
 ```
 
 Ошибки: `400` — неподдерживаемый тип, `413` — больше 10 МБ.
 
-### 2. `POST {url}` (multipart/form-data)
+### 2. `PUT {url}` (raw body, как S3 presigned PUT)
 
-Залить файл по полученной ссылке. Тело — `FormData` с полями из `fields` плюс поле `file`.
+Залить файл по полученной ссылке. Тело — содержимое самого файла, заголовок `Content-Type` соответствует MIME файла.
 
 ### 3. `POST /api/upload/confirm`
 

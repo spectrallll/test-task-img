@@ -3,8 +3,8 @@ import { ALLOWED_TYPES, MAX_SIZE, extFromType, newUploadId, uploads } from "@/li
 
 export const runtime = "nodejs";
 
-// Аналог GET /file/v1/upload-url из боевой среды:
-// принимает метаданные файла, возвращает «presigned»-ссылку + поля для multipart-формы.
+// Аналог GET /file/v1/upload-url:
+// принимает метаданные файла, возвращает presigned-ссылку и file_id.
 export async function POST(req: Request) {
   let body: { name?: string; size?: number; contentType?: string };
   try {
@@ -41,8 +41,6 @@ export async function POST(req: Request) {
   return NextResponse.json({
     url: `/api/upload/put/${id}`,
     file_id: id,
-    fields: {
-      key,
-    },
+    key,
   });
 }
